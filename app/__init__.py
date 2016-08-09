@@ -2,7 +2,7 @@ import datetime
 
 from flask import Flask, current_app, jsonify, request
 
-from flask_jwt import JWT
+from flask_jwt import JWT, jwt_required
 
 from .exceptions import CustomError
 from .services import USER_SERVICE
@@ -36,6 +36,12 @@ def custom_error(error):
 @app.route("/")
 def index():
     return 'API index'
+
+
+@app.route("/protected")
+@jwt_required()
+def protected():
+    return "I am a protected route"
 
 
 @app.route("/user")

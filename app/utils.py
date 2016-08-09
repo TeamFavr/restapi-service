@@ -27,8 +27,9 @@ def authenticate(email, password):
 
 
 def identity(payload):
-    url = "{}users/{}/".format(USER_SERVICE.host, payload['identity'])
+    url = "{}users/{}".format(USER_SERVICE.host, payload['identity'])
     response = requests.get(url)
+    print(url)
     json_response = response.json()
     if response.status_code >= 300:
         raise CustomError(**json_response)
