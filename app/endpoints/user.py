@@ -9,7 +9,6 @@ user_service = Blueprint("user_service", __name__)
 
 
 @user_service.route("/user")
-@jwt_required()
 def user_index():
     return forward_request_to_service(request, USER_SERVICE, "")
 
@@ -23,3 +22,10 @@ def user_signup():
 @jwt_required()
 def friends():
     return forward_request_to_service(request, USER_SERVICE, "/friends")
+
+
+@user_service.route("/friend-requests", methods=["GET", "POST"])
+@jwt_required()
+def friend_requests():
+    return forward_request_to_service(
+        request, USER_SERVICE, "/friend-requests")
