@@ -9,7 +9,7 @@ def forward_request_to_service(request, service, endpoint):
     request_method = getattr(requests, request.method.lower())
     headers = request.headers
     params = request.args
-
+    print(url)
     resp = request_method(url, params=params, json=request.json,
                           headers=headers)
 

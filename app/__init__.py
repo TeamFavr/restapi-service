@@ -47,3 +47,8 @@ def protected():
 @app.route("/user")
 def user_index():
     return forward_request_to_service(request, USER_SERVICE, "")
+
+
+@app.route("/signup", methods=["POST"])
+def user_signup():
+    return forward_request_to_service(request, USER_SERVICE, "signup")
