@@ -29,3 +29,11 @@ def friends():
 def friend_requests():
     return forward_request_to_service(
         request, USER_SERVICE, "/friend-requests")
+
+
+@user_service.route("/friendship/<int:id>", methods=["GET", "PATCH", "DELETE"])
+@jwt_required()
+def friendship_by_id(id):
+    return forward_request_to_service(
+        request, USER_SERVICE,
+        "/friendship/{}".format(id))
