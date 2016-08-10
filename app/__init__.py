@@ -5,6 +5,8 @@ from flask import Flask, current_app, jsonify, request
 
 from flask_jwt import JWT
 
+from flasgger import Swagger
+
 from .endpoints import BLUEPRINTS
 from .exceptions import CustomError
 from .services import USER_SERVICE
@@ -53,6 +55,7 @@ def create_app():
     app.config['JWT_AUTH_USERNAME_KEY'] = 'email'
 
     jwt.init_app(app)
+    Swagger(app)
 
     @app.errorhandler(CustomError)
     def custom_error(error):

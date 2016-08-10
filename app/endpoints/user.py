@@ -10,6 +10,11 @@ user_service = Blueprint("user_service", __name__)
 
 @user_service.route("/user")
 def user_index():
+    """
+
+    file: docs/user/user_index.yml
+
+    """
     return forward_request_to_service(request, USER_SERVICE, "")
 
 
