@@ -10,8 +10,7 @@ def forward_request_to_service(request, service, endpoint):
     request_method = getattr(requests, request.method.lower())
     headers = dict(request.headers)
 
-    if request.headers.get('Authorization', None):
-        print(current_identity)
+    if current_identity._get_current_object() is not None:
         headers['User-Id'] = str(current_identity['id'])
 
     params = request.args
