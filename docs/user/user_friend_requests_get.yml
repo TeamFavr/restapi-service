@@ -1,0 +1,53 @@
+Friend Request Listing
+
+Lists all friend requests a user has not accepted or deleted
+---
+tags:
+  - user
+  - friendship
+produces:
+  - application/json
+responses:
+  200:
+    description: A list of friend requests and a success message
+    schema:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: Indicates if there was an error or not.
+          default: true
+        friend_requests:
+          type: array
+          items:
+            schema:
+              properties:
+                id:
+                  type: integer
+                actioning_user:
+                  type: object
+                  schema:
+                    properties:
+                      id:
+                        type: integer
+                      first_name:
+                        type: string
+                      last_name:
+                        type: string
+                      email:
+                        type: string
+                recieving_user:
+                  type: object
+                  schema:
+                    properties:
+                      id:
+                        type: integer
+                      first_name:
+                        type: string
+                      last_name:
+                        type: string
+                      email:
+                        type: string
+                confirmed:
+                  type: boolean
+                  default: false

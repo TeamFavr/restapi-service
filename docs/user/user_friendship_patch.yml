@@ -1,0 +1,63 @@
+Friendship Accept
+
+Accept a Friend Request by setting confirmed to true (or false but that is useless functionality)
+---
+tags:
+  - user
+  - friendship
+parameters:
+  - name: id
+    in: path
+    type: integer
+    required: true
+  - name: json
+    in: body
+    type: string
+    schema:
+      type: object
+      properties:
+          confirmed:
+            type: boolean
+responses:
+  200:
+    description: Contains a success message
+    schema:
+        type: object
+        properties:
+          success:
+            type: boolean
+            description: Indicates if there was an error or not.
+            default: true
+          friendship:
+            type: object
+            schema:
+              properties:
+                id:
+                  type: integer
+                actioning_user:
+                  type: object
+                  schema:
+                    properties:
+                      id:
+                        type: integer
+                      first_name:
+                        type: string
+                      last_name:
+                        type: string
+                      email:
+                        type: string
+                recieving_user:
+                  type: object
+                  schema:
+                    properties:
+                      id:
+                        type: integer
+                      first_name:
+                        type: string
+                      last_name:
+                        type: string
+                      email:
+                        type: string
+                confirmed:
+                  type: boolean
+                  default: true

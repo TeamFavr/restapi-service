@@ -1,0 +1,32 @@
+Friend Listings
+
+Lists all users who are friends with the current user
+---
+tags:
+  - user
+  - friendship
+produces:
+  - application/json
+responses:
+  200:
+    description: A list of users and a success message
+    schema:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: Indicates if there was an error or not.
+          default: true
+        friends:
+          type: array
+          items:
+            schema:
+              properties:
+                id:
+                  type: integer
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                email:
+                  type: string

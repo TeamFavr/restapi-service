@@ -1,0 +1,29 @@
+Create Friend Request
+
+Creates a friend request between the current user and a given user, it throws an error there is already an open friend request or the users are already friends.
+---
+tags:
+  - user
+  - friendship
+parameters:
+  - name: json
+    in: body
+    type: string
+    required: true
+    schema:
+      type: object
+      required:
+        - recieving_user_id
+      properties:
+          recieving_user_id:
+            type: integer
+responses:
+  201:
+    description: Contains a success message
+    schema:
+        type: object
+        properties:
+          success:
+            type: boolean
+            description: Indicates if there was an error or not.
+            default: true

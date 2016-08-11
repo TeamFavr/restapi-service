@@ -1,0 +1,55 @@
+Friendship Detail
+
+Returns an object containing a Friendship or Friend Request with the specified id. Must be part of the Friendship to see it.
+---
+tags:
+  - user
+  - friendship
+parameters:
+  - name: id
+    in: path
+    type: integer
+    required: true
+responses:
+  200:
+    description: A Friendship object
+    schema:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: Indicates if there was an error or not.
+          default: true
+        friendship:
+          type: object
+          schema:
+            properties:
+              id:
+                type: integer
+              actioning_user:
+                type: object
+                schema:
+                  properties:
+                    id:
+                      type: integer
+                    first_name:
+                      type: string
+                    last_name:
+                      type: string
+                    email:
+                      type: string
+              recieving_user:
+                type: object
+                schema:
+                  properties:
+                    id:
+                      type: integer
+                    first_name:
+                      type: string
+                    last_name:
+                      type: string
+                    email:
+                      type: string
+              confirmed:
+                type: boolean
+                default: true

@@ -1,0 +1,24 @@
+Friendship Delete
+
+Deletes a Friendship object with the specified id. You must be part of the Friendship to carry out this action.
+
+This allows you to both unfriend a user and reject a friend request since both are represented by the same model.
+---
+tags:
+  - user
+  - friendship
+parameters:
+  - name: id
+    in: path
+    type: integer
+    required: true
+responses:
+  200:
+    description: A Friendship object
+    schema:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: Indicates if there was an error or not.
+          default: true
